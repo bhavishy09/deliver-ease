@@ -31,3 +31,17 @@ Fast & Cost-Effective: Uses multiple algorithms to reduce delivery cost & time.
  Real-World Application: Ideal for logistics companies & e-commerce platforms.
 User-Friendly: Easy-to-use menu system with simple inputs.
 
+
+
+
+//day 1 
+
+ 1-->basic code
+ 2-->use graph viz 
+ 3--> write code and do some basic change 
+ 4-->
+ //
+ next --> cites badni h 
+     make a plan for how i fuel and cost efficent it is 
+     //use what you use car or bike for delivery 
+     time taking .to reach 
