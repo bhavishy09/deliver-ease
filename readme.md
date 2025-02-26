@@ -45,3 +45,25 @@ User-Friendly: Easy-to-use menu system with simple inputs.
      make a plan for how i fuel and cost efficent it is 
      //use what you use car or bike for delivery 
      time taking .to reach 
+
+
+      1->
+     //think in grah when you want to go from 1 to 6 how many of locations  between the paths 
+     //example if you want to from jiit to  warehouse3 uske bich m kn kn se pad rhe paths protn krna h pura 
+
+     //*** paths print 
+
+
+     2->
+
+     CHECK HOW SHORT PATH OR DIRECT DILEVERY USING DIJASTRA AND FORDWRASHALL 
+
+
+     3--> 
+
+Distance from BOTANICALGARDEN to WAREHOUSE2 is: 2147483647 km:
+By a  Car speed is:50km.hr
+Estimated travel time: 4.29497e+07 hours
+    
+
+      

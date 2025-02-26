@@ -94,25 +94,33 @@ int main() {
     cout << "Welcome DELIVERY-EASE" << RESET << endl;
 
     
-    int V = 5;
+    int V = 8;
     Graph graph(V);
    vector<string> locations;
 locations.push_back("JIIT");
 locations.push_back("BOTANICALGARDEN");
 locations.push_back("GREATERNOIDA");
 locations.push_back("SECTO104");
-locations.push_back("WAREHOUSE");
+locations.push_back("WAREHOUSE1");
+locations.push_back("WAREHOUSE2");
+locations.push_back("WAREHOUSE3");
+locations.push_back("WAREHOUSE4");
 
     
     // Adding routes
-    graph.addEdge(0, 1, 6);
-    graph.addEdge(1, 2, 5);
-    graph.addEdge(2, 3, 4);
-    graph.addEdge(3, 4, 5);
+   
+    graph.addEdge(0, 1, 60);
+    graph.addEdge(1, 2, 50);
+    graph.addEdge(2, 3, 40);
+    graph.addEdge(3, 4, 50);
     graph.addEdge(2, 3, 10);
-    
-int k;
- cin>>k;
+      graph.addEdge(2, 4, 100);
+        graph.addEdge(2, 6, 90);
+          graph.addEdge(2, 7, 70);
+
+    //  graph.floydWarshall();
+      int k;
+     cin>>k;
     // Run Floyd-Warshall Algorithm
     
     if(k==1)
@@ -130,6 +138,18 @@ int k;
     while (c!=-1)
     {
         /* code */
+
+        
+
+
+
+
+
+
+
+
+
+
    
     
     // User selects source location
@@ -151,6 +171,7 @@ int k;
     cout<<RED << "Select your destination:\n";
     for (int i = 0; i < V; i++) {
         cout << i + 1 << ". " << locations[i] << "\n";
+
     }
     int dest;
     cout<<CYAN << "Enter the number corresponding to your destination: ";
@@ -163,8 +184,41 @@ int k;
     }
     
     vector<int> distances = dijkstra(graph, src);
+
+
+
+// adding vechile chosse and speed and time 
+    cout<< "Select mode of delivery:\n";
+    cout<< "1. Bike (40 km/hr)\n2. Car (50 km/hr)\n";
+    int vehicle;
+    cout<< "Enter your choice: ";
+    cin>>vehicle;
     
-    cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " << distances[dest] << " km\n";
+   
+    float speed ;
+     
+   
+     
+    if(vehicle == 1)
+    {
+        
+        speed=40;
+        float time = distances[dest] / speed;
+        cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " << distances[dest] << " km:\n"<<"By a"<<"Bike  "<<"speed is"<<":"<<RED<<speed<<"km.hr\n";
+         cout << "Estimated travel time: " << time << " hours\n";
+    
+    }
+    else{
+       
+        speed=50;
+        float time = distances[dest] / speed;
+         cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " <<  distances[dest] << " km:\n"<<"By a "<<" Car "<<"speed is"<<":"<<RED<<speed<<"km.hr\n";
+           cout << "Estimated travel time: " << time << " hours\n";
+    
+    }
+   
+    
+    // cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " << distances[dest] << " km\n";
     
     // Generate Graph Visualization
     generateGraphViz(graph, locations);
@@ -174,5 +228,23 @@ int k;
     
      cin>>c;
     }
+
+
+
+
+
+
+
+
+
+    
+    
     return 0;
+  
+
+
+
+
+
+
 }
