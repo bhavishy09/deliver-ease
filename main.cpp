@@ -87,6 +87,9 @@ void generateGraphViz(Graph &graph, vector<string> &locations) {
     system("dot -Tpng graph.dot -o graph.png");
 }
 
+
+//printing paths 
+
 int main() {
 
 
@@ -188,8 +191,9 @@ locations.push_back("WAREHOUSE4");
 
 
 // adding vechile chosse and speed and time 
-    cout<< "Select mode of delivery:\n";
-    cout<< "1. Bike (40 km/hr)\n2. Car (50 km/hr)\n";
+cout << "Select mode of transport:\n1. Bike (40 km/hr)\n2. Car (50 km/hr)\n";
+   
+    
     int vehicle;
     cout<< "Enter your choice: ";
     cin>>vehicle;
@@ -205,7 +209,7 @@ locations.push_back("WAREHOUSE4");
         speed=40;
         float time = distances[dest] / speed;
         cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " << distances[dest] << " km:\n"<<"By a"<<"Bike  "<<"speed is"<<":"<<RED<<speed<<"km.hr\n";
-         cout << "Estimated travel time: " << time << " hours\n";
+         cout <<CYAN<< "Estimated travel time: " <<RED<< time << " hours\n";
     
     }
     else{
@@ -213,7 +217,7 @@ locations.push_back("WAREHOUSE4");
         speed=50;
         float time = distances[dest] / speed;
          cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " <<  distances[dest] << " km:\n"<<"By a "<<" Car "<<"speed is"<<":"<<RED<<speed<<"km.hr\n";
-           cout << "Estimated travel time: " << time << " hours\n";
+           cout<<CYAN << "Estimated travel time: "<<RED << time << " hours"<<endl;
     
     }
    
@@ -222,10 +226,10 @@ locations.push_back("WAREHOUSE4");
     
     // Generate Graph Visualization
     generateGraphViz(graph, locations);
-    cout<<CYAN << "\nGraph visualization saved as graph.png!\n";
+    cout<<CYAN << "\nGraph visualization saved as graph.png!"<<endl;
 
     //choose to go further or not 
-    
+    cout<<RED<<"please enter -1 if you want to exit"<<endl;
      cin>>c;
     }
 

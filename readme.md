@@ -34,17 +34,19 @@ User-Friendly: Easy-to-use menu system with simple inputs.
 
 
 
-//day 1 
-
+//day 1 ✅
  1-->basic code
  2-->use graph viz 
  3--> write code and do some basic change 
  4-->
  //
  next --> cites badni h 
-     make a plan for how i fuel and cost efficent it is 
+     
      //use what you use car or bike for delivery 
-     time taking .to reach 
+     time taking .to reach  ✅
+
+
+     make a plan for how i fuel and cost efficent it is 
 
 
       1->
@@ -59,11 +61,29 @@ User-Friendly: Easy-to-use menu system with simple inputs.
      CHECK HOW SHORT PATH OR DIRECT DILEVERY USING DIJASTRA AND FORDWRASHALL 
 
 
-     3--> 
+     3--> 4️⃣ Cost Calculation – Har ride ka estimated fuel cost calculate ho jaaye (based on distance and mileage).
+     2️⃣ Multiple Delivery Stops – Agar ek se zyada jagah pe delivery karni hai, toh Multi-stop optimization add kar sakta hai (TSP – Travelling Salesman Problem use karke).
 
+     1️⃣ Real-time Traffic Consideration – Agar baad me API integration karega, toh Google Maps ya OpenStreetMap ki API use karke real-time traffic data le sakta hai. Fir dynamic speed calculation ho sakti hai.
+
+     6️⃣ Priority-Based Delivery Sorting – Urgent deliveries ko alag prioritize kar sake sorting algorithms se.
+
+
+//ERROR ✅
 Distance from BOTANICALGARDEN to WAREHOUSE2 is: 2147483647 km:
 By a  Car speed is:50km.hr
 Estimated travel time: 4.29497e+07 hours
+
+
+
+//new idea 
+
+ki alg alg function ko as a file bna k treat kr lu 
+and pir ek main file ....
+
+
+
+//
     
 
       

@@ -1,9 +1,23 @@
 digraph G {
   JIIT -> BOTANICALGARDEN [label="60 km"];
+  JIIT -> GREATERNOIDA [label="110 km"];
+  JIIT -> SECTO104 [label="120 km"];
+  JIIT -> WAREHOUSE1 [label="170 km"];
+  JIIT -> WAREHOUSE3 [label="200 km"];
+  JIIT -> WAREHOUSE4 [label="180 km"];
   BOTANICALGARDEN -> GREATERNOIDA [label="50 km"];
+  BOTANICALGARDEN -> SECTO104 [label="60 km"];
+  BOTANICALGARDEN -> WAREHOUSE1 [label="110 km"];
+  BOTANICALGARDEN -> WAREHOUSE3 [label="140 km"];
+  BOTANICALGARDEN -> WAREHOUSE4 [label="120 km"];
   GREATERNOIDA -> SECTO104 [label="10 km"];
-  GREATERNOIDA -> WAREHOUSE1 [label="100 km"];
+  GREATERNOIDA -> WAREHOUSE1 [label="60 km"];
   GREATERNOIDA -> WAREHOUSE3 [label="90 km"];
   GREATERNOIDA -> WAREHOUSE4 [label="70 km"];
   SECTO104 -> WAREHOUSE1 [label="50 km"];
+  SECTO104 -> WAREHOUSE3 [label="100 km"];
+  SECTO104 -> WAREHOUSE4 [label="80 km"];
+  WAREHOUSE1 -> WAREHOUSE3 [label="150 km"];
+  WAREHOUSE1 -> WAREHOUSE4 [label="130 km"];
+  WAREHOUSE3 -> WAREHOUSE4 [label="160 km"];
 }
