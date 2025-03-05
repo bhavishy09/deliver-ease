@@ -83,7 +83,7 @@ and pir ek main file ....
 
 
 
-//
+// there is dikt in cost and fuel part 
     
 
       

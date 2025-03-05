@@ -187,7 +187,7 @@ locations.push_back("WAREHOUSE4");
     }
     
     vector<int> distances = dijkstra(graph, src);
-
+   
 
 
 // adding vechile chosse and speed and time 
@@ -200,25 +200,84 @@ cout << "Select mode of transport:\n1. Bike (40 km/hr)\n2. Car (50 km/hr)\n";
     
    
     float speed ;
+
+    
+    float fuel;
+    
+    
      
    
      
     if(vehicle == 1)
     {
-        
+        float cost=60;
+         float avg=60;
         speed=40;
         float time = distances[dest] / speed;
+        fuel=distances[dest]/avg;
+        cost=cost*fuel;
         cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " << distances[dest] << " km:\n"<<"By a"<<"Bike  "<<"speed is"<<":"<<RED<<speed<<"km.hr\n";
          cout <<CYAN<< "Estimated travel time: " <<RED<< time << " hours\n";
+          cout <<CYAN<< "Estimated fuel: " <<RED<< fuel << " litre"<<endl;
+          cout <<CYAN<< "total cost: " <<RED<< cost << " rupees"<<endl;
+    
     
     }
-    else{
-       
+    else if(vehicle == 2) {
+       float cost=60;
         speed=50;
+         float avg=20;
+         
         float time = distances[dest] / speed;
+          fuel=distances[dest]/avg;
+             cost=cost*fuel;
          cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " <<  distances[dest] << " km:\n"<<"By a "<<" Car "<<"speed is"<<":"<<RED<<speed<<"km.hr\n";
            cout<<CYAN << "Estimated travel time: "<<RED << time << " hours"<<endl;
+           cout <<CYAN<< "Estimated fuel: " <<RED<< fuel << " litre"<<endl;
+            cout <<CYAN<< "total cost: " <<RED<< cost << " rupees"<<endl;
+    }
+
+    else{
+         float avg1=60;
+         float speed1=40;
+         float cost1=40;
+        float time1 = distances[dest] / speed1;
+       float fuel1=distances[dest]/avg1;
+          cost1=cost1*fuel1;
+        cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " << distances[dest] << " km:\n"<<"By a"<<"Bike  "<<"speed is"<<":"<<RED<<speed1<<"km.hr\n";
+         cout <<CYAN<< "Estimated travel time: " <<RED<< time1 << " hours\n";
+          cout <<CYAN<< "Estimated fuel: " <<RED<< fuel1 << " litre"<<endl;
+          cout <<CYAN<< "total cost: " <<RED<< cost1 << " rupees"<<endl;
+
+
+          cout<<CYAN<<"******************************************************************"<<endl;
     
+         float speed2=50;
+         float avg2=20;
+         float cost2=20;
+         
+        float time2= distances[dest] / speed2;
+          float fuel2=distances[dest]/avg2;
+             cost2=cost2*fuel2;
+         cout<<CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: " <<  distances[dest] << " km:\n"<<"By a "<<" Car "<<"speed is"<<":"<<RED<<speed2<<"km.hr\n";
+           cout<<CYAN << "Estimated travel time: "<<RED << time2 << " hours"<<endl;
+           cout <<CYAN<< "Estimated fuel: " <<RED<< fuel2 << " litre"<<endl;
+            cout <<CYAN<< "total cost: " <<RED<< cost2 << " rupees"<<endl;
+
+             cout<<CYAN<<"******************************************************************"<<endl;
+
+             if(cost1<cost2)
+             {
+                cout<<RED<<"use bike this is efficient "<<endl;
+             }
+
+             else{
+                cout<<RED<<"use car this is efficient "<<endl;
+             }
+
+
+
+
     }
    
     
