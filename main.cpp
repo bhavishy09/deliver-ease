@@ -71,21 +71,114 @@ vector<int> dijkstra(Graph &graph, int src) {
     return dist;
 }
 
-// Generate Graphviz visualization
+// // Generate Graphviz visualization
+// void generateGraphViz(Graph &graph, vector<string> &locations) {
+//     ofstream file("graph.dot");
+//     file << "digraph G {\n";
+//     for (int i = 0; i < graph.V; i++) {
+//         for (int j = i + 1; j < graph.V; j++) {
+//             if (graph.adjMatrix[i][j] != INT_MAX) {
+//                 file << "  " << locations[i] << " -> " << locations[j] << " [label=\"" << graph.adjMatrix[i][j] << " km\"];\n";
+//             }
+//         }
+//     }
+//     file << "}\n";
+//     file.close();
+//     system("dot -Tpng graph.dot -o graph.png");
+// }
+
+//code 2
+// void generateGraphViz(Graph &graph, vector<string> &locations) {
+//     ofstream file("graph.dot");
+//     file << "digraph G {\n";
+    
+//     for (int i = 0; i < graph.V; i++) {
+//         for (int j = i + 1; j < graph.V; j++) {
+//             if (graph.adjMatrix[i][j] != INT_MAX) {
+//                 file << "  " << locations[i] << " -> " << locations[j] 
+//                      << " [label=\"" << graph.adjMatrix[i][j] << " km\", dir=both];\n";
+//             }
+//         }
+//     }
+
+//     file << "}\n";
+//     file.close();
+//     system("dot -Tpng graph.dot -o graph.png");
+// }
+
+
+//code3
+
 void generateGraphViz(Graph &graph, vector<string> &locations) {
     ofstream file("graph.dot");
     file << "digraph G {\n";
+    file << "  graph [splines=true];\n"; // Smooth curves for roads
+    file << "  node [shape=box, style=filled, color=lightblue, fontname=\"Arial\", fontsize=14];\n"; 
+
+    for (int i = 0; i < graph.V; i++) {
+        // Different shape for warehouses (as buildings)
+        if (locations[i].find("WAREHOUSE") != string::npos) {
+            file << "  " << locations[i] << " [shape=house, color=orange, style=filled, fillcolor=yellow];\n";
+        }
+    }
+
     for (int i = 0; i < graph.V; i++) {
         for (int j = i + 1; j < graph.V; j++) {
             if (graph.adjMatrix[i][j] != INT_MAX) {
-                file << "  " << locations[i] << " -> " << locations[j] << " [label=\"" << graph.adjMatrix[i][j] << " km\"];\n";
+                file << "  " << locations[i] << " -> " << locations[j]
+                     << " [label=\"" << graph.adjMatrix[i][j] << " km\", penwidth=2, color=blue, fontcolor=red, dir=both, style=dashed];\n";
             }
         }
     }
+
     file << "}\n";
     file.close();
     system("dot -Tpng graph.dot -o graph.png");
 }
+
+
+//code 4
+// Generate Graphviz visualization with custom styles & icons
+// void generateGraphViz(Graph &graph, vector<string> &locations) {
+//     ofstream file("graph.dot");
+//     file << "digraph G {\n";
+//     file << "  graph [splines=polyline];\n";  // Better edge styling
+//     file << "  node [shape=circle, style=filled, fillcolor=lightblue, fontname=\"Arial\", fontsize=12];\n";
+
+//     // Define warehouse nodes with building icons
+//      vector<int> warehouses ;
+// warehouses.push_back(4);
+// warehouses.push_back(5);
+// warehouses.push_back(6);
+// warehouses.push_back(7);
+
+//      // Warehouses indices
+//     for (int i : warehouses) {
+//         file << "  " << locations[i] << " [shape=box, fillcolor=yellow, image=\"warehouse.png\", labelloc=b];\n";
+//     }
+
+//     // Define bike & car nodes
+//     file << "  Bike [shape=plaintext, image=\"bike.png\", labelloc=b];\n";
+//     file << "  Car [shape=plaintext, image=\"car.png\", labelloc=b];\n";
+
+//     // Define roads
+//     for (int i = 0; i < graph.V; i++) {
+//         for (int j = i + 1; j < graph.V; j++) {
+//             if (graph.adjMatrix[i][j] != INT_MAX) {
+//                 file << "  " << locations[i] << " -> " << locations[j]
+//                      << " [label=\"" << graph.adjMatrix[i][j] << " km\", color=black, penwidth=2, dir=\"both\"];\n";
+//             }
+//         }
+//     }
+
+//     file << "}\n";
+//     file.close();
+
+//     // Generate the graph with icons
+//     system("dot -Tpng graph.dot -o graph.png");
+// }
+
+
 
 
 //printing paths 
@@ -115,11 +208,14 @@ locations.push_back("WAREHOUSE4");
     graph.addEdge(0, 1, 60);
     graph.addEdge(1, 2, 50);
     graph.addEdge(2, 3, 40);
-    graph.addEdge(3, 4, 50);
+    graph.addEdge(5, 4, 50);
     graph.addEdge(2, 3, 10);
       graph.addEdge(2, 4, 100);
-        graph.addEdge(2, 6, 90);
-          graph.addEdge(2, 7, 70);
+        graph.addEdge(2, 6, 60);
+          graph.addEdge(2, 7, 90);
+           graph.addEdge(6, 7, 10);
+            graph.addEdge(3, 5, 10);
+             graph.addEdge(2, 5, 10);
 
     //  graph.floydWarshall();
       int k;
