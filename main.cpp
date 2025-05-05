@@ -282,22 +282,36 @@ locations.push_back("SECTO104");
         // Reconstruct path
         vector<int> path = reconstructPath(src, dest, prev);
         
-        cout << "Select mode of transport:\n1. BIKE (40 km/hr)\n2. TRUCK (20 km/hr)\n";
+        cout << "Select mode of transport:\n1. BIKE (60 km/hr)\n2. MINI TRUCK (45 km/hr)\n.3   TRUCK (35 km/hr)\n";
         int vehicle;
+
         cout << "Enter your choice: ";
+
         cin >> vehicle;
 
         float speed, fuel, cost, time;
+
         float distance = distances[dest];
+
         int  capacity;
+
     cout<<RED<<"ENTER CAPACITY"<<endl;
+
     cin>>capacity;
+
       cout<<RED<<" CAPACITY:"<<capacity<<CYAN<<"kg"<<endl;
 
-        if (vehicle == 1 && capacity<5) { // Bike
-            speed = 40;
+
+       //informatons of vechicle== bike 
+       // vehicle == 1  is for bike 
+       //bike for low package 
+
+
+
+        if (vehicle == 1 && capacity<10) { 
+            speed = 60;
             float avg = 60;
-            cost = 60;
+            cost = 105;
             time = distance / speed;
             fuel = distance / avg;
             cost *= fuel;
@@ -316,10 +330,74 @@ locations.push_back("SECTO104");
         logDelivery(locations[src], locations[dest], "Bike", distance, time, cost);
 
 
-        } else if (vehicle == 2 && capacity>5) { // Car
-            speed = 20;
-            float avg = 20;
-            cost = 60;
+        }
+
+       
+        
+        else if(vehicle == 1 && capacity>10  )
+        {
+            cout<<RED<<"your capacity reach the vehicle limit  "<<endl;
+            if(capacity>100)
+            {
+            cout<<RED<<"Please Choose truck as your delivery vehicle "<<endl;
+            }
+            if(capacity>10)
+            {
+            cout<<RED<<"Please Choose Mini Truck as your delivery vehicle "<<endl;
+            }
+            
+        }
+
+           //informatons of vechicle== mini truck 
+       // vehicle == 2  is for MINI TRUCK
+       //MINI TRUCK for MID LEVEL PACKAGES  package 
+
+        
+        
+        
+         else if (vehicle == 2 && capacity>10 && capacity<100) { 
+            speed = 45;
+            float avg = 25;
+            cost = 95;
+            time = distance / speed;
+            fuel = distance / avg;
+            cost *= fuel;
+
+            cout << CYAN << "\nDistance from " << locations[src] << " to " << locations[dest] << " is: "
+                 << distance << " km:\nBy a MINI TRUCK, speed is: " << RED << speed << " km/hr\n";
+            cout << CYAN << "Estimated travel time: " << RED << time << " hours\n";
+            cout << CYAN << "Estimated fuel: " << RED << fuel << " litre\n";
+            cout << CYAN << "Total cost: " << RED << cost << " rupees\n";
+             cout << CYAN << "\nShortest path: ";
+        for (int i = 0; i < path.size(); i++) {
+            cout << locations[path[i]];
+            if (i != path.size() - 1) cout << " -> ";
+        }
+        cout << endl;
+        logDelivery(locations[src], locations[dest], "MINI Truck", distance, time, cost);
+
+
+        }
+          else if(vehicle == 2 && capacity>100 )
+        {
+            cout<<RED<<"your capacity reach the vehicle limit  "<<endl;
+            if(capacity>100  )
+            {
+            cout<<RED<<"Please Choose truck as your delivery vehicle "<<endl;
+            }
+
+            
+        }
+        
+           //informatons of vechicle== truck
+       // vehicle == 3 is for  TRUCK
+       //MINI TRUCK for high LEVEL PACKAGES  package 
+
+       
+        else if (vehicle == 3 && capacity>100 &&  capacity<200 ) { 
+            speed = 35;
+            float avg = 10;
+            cost = 95;
             time = distance / speed;
             fuel = distance / avg;
             cost *= fuel;
@@ -335,10 +413,24 @@ locations.push_back("SECTO104");
             if (i != path.size() - 1) cout << " -> ";
         }
         cout << endl;
-        logDelivery(locations[src], locations[dest], "Truck", distance, time, cost);
+        logDelivery(locations[src], locations[dest], "TRUCK", distance, time, cost);
 
 
-        } else { // Compare both
+        }
+            else if(vehicle == 3 && capacity>200 )
+        {
+
+            
+            cout<<RED<<"WE DON'T HAVE DELIVERY OPTIONS  "<<endl;
+         
+            
+        }
+        
+        
+        
+        
+ // Compare both
+         else { 
             float avg1 = 60, speed1 = 40, cost1 = 40;
             float time1 = distance / speed1;
             float fuel1 = distance / avg1;
@@ -376,11 +468,14 @@ locations.push_back("SECTO104");
         }
 
         generateGraphViz(graph, locations);
+
         cout << CYAN << "\nGraph visualization saved as graph.png!\n";
 
         cout << RED << "Please enter -1 if you want to exit, or any other number to continue: ";
+      
         cin >> c;
     }
+
 
     return 0;
 }
